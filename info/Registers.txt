@@ -1,0 +1,60 @@
+---Data Registers---
+D1 - Data Register 1 
+D2 - Data Register 2
+D3 - Data Register 3
+D4 - Data Register 4
+--------------------
+
+----Pointer Registers----
+IP - Instruction Pointer
+PP - Puntero de Pila
+DP - Data Pointer
+PA - Pointer Auxiliar
+-------------------------
+
+----Segment Registers----
+IS - Instruction Segment
+PS - Segmento de Pila
+DS - Segmento de Data
+-------------------------
+
+----Flags Registers----
+MO - Modos
+ES - Estados
+----------------------
+
+Flags de Modos:
+0 - MPNA - Modo ([0] para Pila, 1 para Ahorrar) 
+1 -
+2 - MOPI - Modo ([0] para No Immediato, 1 para Immediato)  
+3 - MOPV - Modo ([0] para No Variable, 1 para Variable)-- indentifica los operandos
+4 - MOPC - Modo ([0] para Conteo, 1 para No Conteo)
+5 - 
+6 - S1DD - Modo Data Direct para Source 1 ([0] - False, 1 - True)
+7 - S1SA - Modo Single Address para Source 1 ([0] - False, 1 - True)
+8 - S1DA - Modo Double Address para Source 1 ([0] - False, 1 - True)
+9 - S2DD - Modo Data Direct para Source 2 ([0] - False, 1 - True)
+A - S2SA - Modo Single Address para Source 2 ([0] - False, 1 - True)
+B - S2DA - Modo Double Address para Source 2 ([0] - False, 1 - True)
+C - DEDD - Modo Data Direct para Destination ([0] - False, 1 - True)
+D - DESA - Modo Single Address para Destination ([0] - False, 1 - True)
+E - DEDA - Modo Double Address para Destination ([0] - False, 1 - True)
+F - 
+
+Flags de Estados:
+0 - OVER - Indica un Overflow 
+1 -
+2 - DIRE - Indica una Direccion  
+3 -
+4 - INTE - Indica una Interupcion
+5 - 
+6 - TRAP - Indica un Trap
+7 - 
+8 - SIGN - Indica Signo
+9 - 
+A - CERO - Indica Cero
+B - 
+C - ACAR - Indica Accareo
+D - ACAX - Indica Accareo Auxiliar
+E - 
+F - PARI - Indica Pariedad

@@ -1,0 +1,50 @@
+Operaciones de Pila:
+MODA	0x0001 (Modo de Ahorro, operaciones no se hacen POP de la Pila)
+MODP	0x0002 (Modo de Pila, operaciones hacen un POP de la Pila)
+MODI	0x0003 (Modo Immediato, todo operando de 12-bit es un constante)
+MODV	0x0004 (Modo Variable, todo operando de 12-bit da modo a los operandos de 16 bits que siguen)
+MODC	0x0005 (Modo Conteo, todo operando de 12-bit repite la instruccion un numero de veces indicado)
+///////////////////----------------------////////////////////////////
+F1DD	0x0101 (Modo Data Directo para Fuente 1)
+F1SA	0x0102 (Modo Una Direccion para Fuente 1)MODO DE OPERANDO DE FUENTE 1 (MODO DE LECTURA)
+F1DA	0x0103 (Modo Double Direccion para Fuente 1)
+///////////////////////////////////////////////////////////
+F2DD	0x0201 (Modo Data Directo para Fuente 2)
+F2SA	0x0202 (Modo Una Direccion para Fuente 2)MODO DE OPERANDO DE FUENTE 2 (MODO DE LECTURA)
+F2DA	0x0203 (Modo Double Direccion para Fuente 2)
+//////////////////////////////////////////////////////////
+DEDD	0x0301 (Modo Data Directo para Destino)
+DESA	0x0302 (Modo Una Direccion para Destino)MODOS DE OPERANDO DE DESTINO (MODO DE LECTURA)
+DEDA	0x0303 (Modo Double Direccion para Destino)
+//////////////////////////////////////////////////////////
+SOVE	0x0401 (Poner Bandera OVER en 1)
+SDIR	0x0402 (Poner Bandera DIRE en 1)
+SINT	0x0403 (Poner Bandera INTE en 1)
+STRP	0x0404 (Poner Bandera TRAP en 1)
+SSIG	0x0405 (Poner Bandera SIGN en 1)BANDERAS DE SETEO
+SCER	0x0406 (Poner Bandera CERO en 1)
+SACR	0x0407 (Poner Bandera ACAR en 1)
+SACX	0x0408 (Poner Bandera ACAX en 1)
+SPAR	0x0409 (Poner Bandera PARI en 1)
+////////////////////////////////////////////////////////
+ROVE	0x0501 (Poner Bandera OVER en 0)
+RDIR	0x0502 (Poner Bandera DIRE en 0)
+RINT	0x0503 (Poner Bandera INTE en 0)
+RTRP	0x0504 (Poner Bandera TRAP en 0)
+RSIG	0x0505 (Poner Bandera SIGN en 0)BANDERAS DE RESETEO
+RCER	0x0506 (Poner Bandera CERO en 0)
+RACR	0x0507 (Poner Bandera ACAR en 0)
+RACX	0x0508 (Poner Bandera ACAX en 0)
+RPAR	0x0509 (Poner Bandera PARI en 0)
+/////////////////////////////////////////////
+SALR	0x0EFF Salir / Terminar la Ejecutacion
+SALR	0x0FFF Salir / Terminar la Ejecutacion
+EMPU	0x1[12 bits con significados differentes dependiendo del modo de direccionamiento, variable es de modo Fuente 1|Fuente 2|Fuente 3] (PUSH)
+SCRP	0x2[12 bits con significados differentes dependiendo del modo de direccionamiento, variable es de modo Destino 1|Destino 2|Destino 3]
+SUMP	0x3[12 bits con significados differentes dependiendo del modo de direccionamiento, variable es de modo Fuente 1|Fuente 2|Destino]
+RESP	0x4[12 bits con significados differentes dependiendo del modo de direccionamiento, variable es de modo Fuente 1|Fuente 2|Destino]
+MULP	0x5[12 bits con significados differentes dependiendo del modo de direccionamiento, variable es de modo Fuente 1|Fuente 2|Destino]
+DIVP	0x6[12 bits con significados differentes dependiendo del modo de direccionamiento, variable es de modo Fuente 1|Fuente 2|Destino]
+MDUP	0x7[12 bits con significados differentes dependiendo del modo de direccionamiento, variable es de modo Fuente 1|Fuente 2|Destino]
+PSHL	0xC[Siempre es el numero de Constantes de 16 bits para leer despues (Constante de 12 bits)]
+

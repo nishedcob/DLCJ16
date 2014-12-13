@@ -1,0 +1,33 @@
+Operand Read Types:
+Immediate - All 12 bit operands are numbers (constants)
+Variable - 12 bit operand determines mode of operand(s) that follow as 4 bit segments (Source 1, Source 2, Destination):
+	0x0 - Do not use operand, uses the following logic based on operand configuration:
+		0x000 -> use stack
+		0x00? -> use stack, save result to destination
+		0x0?0 -> use stack, source 2, save to stack
+		0x0?? -> use stack, source 2, save to destination
+		0x?00 -> use source 1, stack, save to stack
+		0x?0? -> use source 1, stack, save result to destination
+		0x??0 -> use source 1, source 2, save to stack
+		0x??? -> use source 1, source 2, save to destination
+	0x1 - Data 1 (Accumulator)
+	0x2 - Data 2
+	0x3 - Data 3
+	0x4 - Data 4
+	0x5 - Instruction Pointer
+	0x6 - Data Pointer
+	0x7 - Stack Pointer
+	0x8 - Pointer Auxiliar
+	0x9 - Instruction Segment
+	0xA - Data Segment
+	0xB - Stack Segment
+	0xC - Modos Register 
+	0xD - Flags Register
+	0xE - Memory Address
+	0xF - Immediate
+Counter - 12 bit es un operando para el numero de veces que debe repetir para la instrucción de la pila.
+
+Operand Interpret Types
+Data Direct - Value is read as Value [ALL]
+Single Address - Value is read as Address of the Value [ALL]
+Double Address - Value is read as Address of the Address of the Value [SOURCES ONLY]

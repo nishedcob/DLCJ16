@@ -1,0 +1,33 @@
+Operaciones de Pila:
+MODA	0x0001 (Modo de Ahorro, operaciones no se hacen POP de la Pila)
+MODP	0x0002 (Modo de Pila, operaciones hacen un POP de la Pila)
+SALR	0x0FFF Salir / Terminar la Ejecutacion
+EMPU	0x1[Constante de 12 bits] (PUSH)
+SCRP	0x2[(Numero de Veces + 1) para hacer el POP (Constante de 12 bit)]
+SUMP	0x3[(Numero de Veces + 1) para hacer el SUM (Constante de 12 bit)]
+RESP	0x4[(Numero de Veces + 1) para hacer el RES (Constante de 12 bit)]
+MULP	0x5[(Numero de Veces + 1) para hacer el MUL (Constante de 12 bit)]
+DIVP	0x6[(Numero de Veces + 1) para hacer el DIV (Constante de 12 bit)]
+PSHL	0xC[Numero de Constantes de 16 bits para leer despues (Constante de 12 bits)]
+
+
+No nos ha dado permiso para hacer esos: :(
+-----2ndo Bimestre-----
+RAIP	0x7[(Numero de Veces + 1) para hacer el RAI (Constante de 12 bit)]
+MODU	0x8[(Numero de Veces + 1) para hacer el MOD (Constante de 12 bit)]
+EXPP	0x9[(Numero de Veces + 1) para hacer el EXP (Constante de 12 bit)]
+LOGP	0xA[(Numero de Veces + 1) para hacer el LOG (Constante de 12 bit)]
+IMPR	0xB[(Numero de Veces + 1) para hacer el IMPR (Constante de 12 bit)]
+PSHL	0xC[Numero de Constantes de 16 bits para leer despues (Constante de 12 bits)]
+INTR	0xD[(Numero de Veces + 1) para hacer el INTR (Constante de 12 bit)]
+IMAP	0xE7[](>=)
+IMEP	0xE8[](<=)
+NIGP	0xE9[](<>)
+IGUP	0xEA[](==)
+MENP	0xEB[](<)
+MAYP	0xEC[](>)
+INVR	0xED[Dirreccion de Pila para MUL por -1 (8 bits)]
+YPPP	0xFC[](AND)
+OPPP	0xFD[](OR)
+NOPP	0xFE[](NOT)
+IRAP	0xFF[Nueva Dirreccion de la Pila (8 bits)]
