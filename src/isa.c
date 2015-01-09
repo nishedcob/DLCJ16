@@ -547,11 +547,15 @@ int EMPU(int operands)
 			return -1;
 		case 1:
 			//Modo Immediato
-			MEMORIA[PP] = (char)(operands & 0x00FF);
+		//	MEMORIA[PP] = (char)(operands & 0x00FF);
+		//	PP--;
+		//	MEMORIA[PP] = (char)((operands & 0x0F00) >> 8);
+		//	PP--;
+			*(MEMORIA + PP) = (char)(operands & 0x00FF);
 			PP--;
-			MEMORIA[PP] = (char)((operands & 0x0F00) >> 8);
+			*(MEMORIA + PP) = (char)((operands & 0x0F00) >> 8);
 			PP--;
-			return (old_pp == PP - 2) ? 0 : -1;
+			return (old_pp - 2 == PP) ? 0 : -1;
 		case 2: ;
 			//Modo Variable
 			char* op_codes = malloc(sizeof(char) * 3);
@@ -571,7 +575,7 @@ int EMPU(int operands)
 			PP--;
 			MEMORIA[PP] = (char)((operand_3 & 0x0F00) >> 8);
 			PP--;
-			return (old_pp == PP - 6) ? 0 : -1;
+			return (old_pp - 6 == PP) ? 0 : -1;
 		case 3:
 			//Modo Conteo
 			//Mover el puntero de pila sin cambiar valores de la pila
@@ -610,7 +614,7 @@ int SCRP(int operands)
 			//No nos importa los valores en la pila, solo debemos mover el puntero de pila
 			PP++;
 			PP++;
-			return (old_pp == PP + 2) ? 0 : -1;
+			return (old_pp + 2 == PP) ? 0 : -1;
 		case 2: ;
 			//Modo Variable
 			char* op_codes = malloc(sizeof(char) * 3);
@@ -643,7 +647,7 @@ int SCRP(int operands)
 			//Enviar Tercer Valor
 			status = enviarOperando(val3, op_codes[2], (char)(3));
 			if (status < 0 ) return status;
-			return (old_pp == PP + 6) ? 0 : -1;
+			return (old_pp + 6 == PP) ? 0 : -1;
 		case 3:
 			//Modo Conteo
 			//Mover el puntero de pila sin cambiar valores de la pila
@@ -1124,18 +1128,29 @@ int operand_mode()
 	else if (modi == false && modv == true && modc == false) return 2;
 	else if (modi == false && modv == false && modc == true) return 3;
 	*/
+	/*
 	printf("MODOS: 0x%04X\n", MO);
 	printf("MOPI: %d\n", ((MO >> M_MOPI) % 2));
 	printf("MOPV: %d\n", ((MO >> M_MOPV) % 2));
 	printf("MOPC: %d\n", ((MO >> M_MOPC) % 2));
+	*/
 	/*
 	if (((MO >> M_MOPI) % 2 == 1) && ((MO >> M_MOPV) % 2 == 0) && ((MO >> M_MOPC) % 2 == 0)) return 1;
 	else if (((MO >> M_MOPI) % 2 == 0) && ((MO >> M_MOPV) % 2 == 1) && ((MO >> M_MOPC) % 2 == 0)) return 2;
 	else if (((MO >> M_MOPI) % 2 == 0) && ((MO >> M_MOPV) % 2 == 0) && ((MO >> M_MOPC) % 2 == 1)) return 3;
 	*/
-	if (((MO >> M_MOPI) % 2 == 1)) return 1;
+	/*if (((MO >> M_MOPI) % 2 == 1)) return 1;
 	else if (((MO >> M_MOPV) % 2 == 1)) return 2;
 	else if (((MO >> M_MOPC) % 2 == 1)) return 3;
+	else return -1;*/	
+	/*printf("MODOS: 0x%04X\n", MO);
+	printf("MOPI: %d\n", ((MO & (1 << M_MOPI))));
+	printf("MOPV: %d\n", ((MO & (1 << M_MOPV))));
+	printf("MOPC: %d\n", ((MO & (1 << M_MOPC))));*/
+	unsigned short tmp_MO = MO & 0x3800;
+	if (tmp_MO == 0x2000) return 1;
+	else if (tmp_MO == 0x1000) return 2;
+	else if (tmp_MO == 0x0800) return 3;
 	else return -1;
 }
 
