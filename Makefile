@@ -4,9 +4,11 @@ CC_WIN32=i686-w64-mingw32-gcc
 CC_WIN64=x86_64-w64-mingw32-gcc
 #ARGS:
 #With Warnings
-CFLAGS=-Wall
+#CFLAGS=-Wall
 #Without Warnings
 #CFLAGS=
+#With Warnings and Debugger Symbols
+CFLAGS=-Wall -g
 #Source code
 SRC=src/
 BIN=bin/
