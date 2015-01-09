@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
 	printf("Entrando al Proceso...\n");
 	printf("----------------------------------------\n");
 	while (status == 0) { //Mientras que tengamos exito en ejecutar las instrucciones
-		printf("MO: 0x%04x\n", MO);
+		//printf("MO: 0x%04x\n", MO);
 		imprimerPila();
 		status = ejecutarInstruccion(); //ejecutamos las instrucciones y asiganmos a estado
 		if (status > 0) { // comparamos si es mayor a 0
